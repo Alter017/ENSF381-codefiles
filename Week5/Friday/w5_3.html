@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Event and DOM 
+        </title>
+        <style>
+            .highlight {
+                color: red;
+                font-weight: bold;
+            }
+
+            #newDiv {
+                background-color: lightblue;
+                padding: 10px;
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body id="body">
+        <h2> Welcome to Week 5 Slide 3 codes</h2>
+
+        <!--Example-1-->
+        <!--Right click, double click and mouse enter not in slides-->
+        
+        <p>
+            <button onclick="showMessage1()">Left Click here</button>
+            <script>
+            function showMessage1() 
+            {
+                alert("Left clicked mouse!");
+            }
+            </script>
+        </p>
+
+        <p>
+            <button oncontextmenu="showMessage2()">Right Click here</button>
+            <script>
+            function showMessage2() 
+            {
+                alert("Right clicked mouse!");
+            }
+            </script>
+        </p>
+
+        <p>
+            <button ondblclick="showMessage3()">Double Click here</button>
+            <script>
+            function showMessage3() 
+            {
+                alert("Double clicked mouse!");
+            }
+            </script>
+        </p>
+
+        <p>
+            <button onmouseenter="showMessage4()">Bring Mouse here</button>
+            <script>
+            function showMessage4() 
+            {
+                alert("Mouse pointer entered button!");
+            }
+            </script>
+        </p>
+        
+
+       <!--Example-2-->
+        
+        <label>Press a key in the input field:</label> 
+        <br>
+        <input type="text" id="myInput" onkeydown="keyPressed(event)">
+        <script>
+        // JavaScript function to handle the keydown event
+        function keyPressed(event) 
+        {
+            // Display the key code and the pressed key
+            alert("Key Code: " + event.code + "\nPressed Key: " + event.key);
+        }
+        </script>
+        
+
+        <!--Example-3-->
+        
+        <p id="demoParagraph">This is a paragraph with an ID.</p>
+        <script>
+        var paragraphById = document.getElementById("demoParagraph");
+        if (paragraphById) {
+            console.log("Element found by ID: " + paragraphById.textContent);
+        }
+        </script>
+        
+
+        <!--Example-4: Tweaked from slide to keep changing-->
+        
+        <h1 id="myHeading">Hello, World!</h1>
+        <button onclick="changeText()">Change Text</button>
+        <script>
+        function changeText() {
+            var headingElement = document.getElementById("myHeading");
+
+            if(headingElement.textContent == 'Hello, World!')
+                headingElement.textContent = "Welcome to ENSF381!";
+            else
+                headingElement.textContent = "Hello, World!";
+        }
+        </script>
+        
+
+        <!--Example-5-->
+        
+        <h3>
+            ENSF381 Course 
+        </h3>
+        <div id="test-btn">
+            This div element contains <b>bold</b> and <i>italic text</i>.
+        </div>
+        <button onClick="innerHTMLOutput()"> innerHTML </button>
+        <button onClick="textContentOutput()"> textContent </button>
+        <script>
+        function textContentOutput() {
+            var div_elem = document.getElementById('test-btn');
+            console.log(div_elem.textContent);
+        }
+        function innerHTMLOutput() {
+            var div_elem = document.getElementById('test-btn');
+            console.log(div_elem.innerHTML);
+        }
+        </script> 
+        
+
+        <!--Example-6-->
+        
+        <p class="highlight">This paragraph has the 'highlight' class.</p>
+        <p class="highlight">Another paragraph with the 'highlight' class.</p>
+        <p> Another paragraph WITHOUT the 'highlight' class.</p>
+        <script>
+        var elementsByClass = document.getElementsByClassName("highlight");
+        for (var i = 0; i < elementsByClass.length; i++) {
+            console.log("Element found by class: " + elementsByClass[i].textContent);
+        }
+        </script>
+        
+
+        <!--Example-7-->
+        
+        <img id="myImage" width="540 px" height="310px" src="https://ucalgary.ca/themes/ucalgary/ucws_theme/images/UCalgary.svg" alt="Original Image" onmouseover="changeImage()" onmouseout="restoreImage()">
+        <script>
+        function changeImage() {
+            document.getElementById("myImage").src = "https://cdn.vox-cdn.com/thumbor/KsX_3g1MlV_YdV_o9DTrK3RdmVY=/0x0:4000x2667/1820x1213/filters:focal(1680x1014:2320x1654):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/71765930/1450131991.0.jpg";
+        }
+        function restoreImage() {
+            document.getElementById("myImage").src = "https://ucalgary.ca/themes/ucalgary/ucws_theme/images/UCalgary.svg";
+        }
+        </script>
+        
+
+        <!--Example-8-->
+        
+        <script>
+        function validatePassword() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            
+            if (password !== confirmPassword) {
+                alert("Passwords do not match! Please re-enter.");
+                console.log(`password: ${password}`)
+                console.log(`confirmPassword: ${confirmPassword}`)
+                document.getElementById("confirmPassword").value = "";
+            }
+        }
+        
+        function handleDropdown() {
+            var selectedValue = document.getElementById("dropdown").value;
+            console.log("Selected value: " + selectedValue);
+        }
+        </script>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password">
+        <br>
+        <label for="confirmPassword">Re-enter Password:</label>
+        <input type="password" id="confirmPassword" onchange="validatePassword()">
+        <br>
+        <label for="dropdown">Select an option:</label>
+        <select id="dropdown" onchange="handleDropdown()">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+        </select>
+        
+
+        <!--Example-9: 
+        * Deviation from slide example. 
+        * Adding Delete button. 
+        * Delete in reverse order of creation.
+        -->
+        
+        <button onclick="createNewDiv()">Create Div</button>
+        <button onclick="deleteNewDiv()">Delete Div</button>
+
+        <script>
+        let divcount=0;
+
+        function createNewDiv() {
+            var newDiv = document.createElement("div");
+            newDiv.id = "newDiv";
+            newDiv.className = "newDiv"+divcount;
+            newDiv.textContent = "This is dynamically created div"+divcount+"!!";
+            divcount++;
+            var body_elem = document.getElementById('body');
+            body_elem.appendChild(newDiv);
+        }
+
+        function deleteNewDiv() {
+            divcount--;
+            var div_element = document.getElementsByClassName('newDiv'+divcount);
+            var body_elem = document.getElementById(div_elem);
+            body_elem.removeChild(div_elem[0]);
+        }
+    
+        </script>
+    </body>
+</html>

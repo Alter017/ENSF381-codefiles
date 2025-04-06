@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Statements Example</title>
+    </head>
+    <body>
+        <h2> Welcome to Week 4 Slide 3 codes</h2>
+        <script>
+        // Example-1
+        // Declaring a variable and printing it
+        console.log("EXAMPLE 1");
+        
+        let message = "Hello, World!";
+        console.log(message);
+        // Performing a simple calculation
+        let x = 5;
+        let y = 10;
+        let sum = x + y;
+        console.log("Sum:", sum);
+
+        //Example-2
+        console.log("");
+        console.log("EXAMPLE 2");
+
+        var z = 10;
+        if (z<100) 
+        {
+            var z = 20;         // Same variable!!
+            console.log(z);
+        }
+        console.log(z);
+
+        //Example-3
+        console.log("");
+        console.log("EXAMPLE 3");
+        
+        let a = 10;
+        if (a==10) 
+        {
+            let a = 20;
+            console.log(a);
+        }
+        console.log(a);
+
+        //Example-4
+        console.log("");
+        console.log("EXAMPLE 4");
+        
+        const aitor = 10;
+        if (true) 
+        {
+            const aitor = 20;
+            console.log(aitor);
+        }
+        //const z = 50;             // Already declared const
+        //const z = 50;             // Assignment to a const is not permitted
+        console.log(aitor);
+
+        //Example-5
+        console.log("");
+        console.log("EXAMPLE 5");
+        
+        for (let i = 0; i < 5; i++) 
+        {
+            console.log(i+1);
+        }
+       
+       //Example-6
+       console.log("");
+       console.log("EXAMPLE 6");
+       
+       let firstName = 'John';
+       let lastName = "Doe";
+       let fullName = firstName + ' ' + lastName;
+       console.log(fullName)
+       let eugenio = 5
+       let concatWithNumbers = firstName + eugenio;
+       console.log(concatWithNumbers)
+
+       //Example-7
+       console.log("");
+       console.log("EXAMPLE 7");
+       
+       let str1 = "Hello, World!";
+       let len = str1.length;
+       console.log(`Length of ${str1} is ${len}.`)
+
+       console.log("");
+
+       let str2 = "JavaScript";
+       let sub1 = str2.substring(0, 4); 
+       console.log(`${sub1} is substring of ${str2} from positions 0-3.`)
+
+       console.log("");
+
+       let sub2 = str2.substr(4, 6);
+       console.log(`${sub2} is substring of ${str2} from positions 4 and stretching 6 characters.`)
+
+       console.log("");
+
+       let newStr = str1.replace("Hello", "Hi");
+       console.log(`The new string derived by replacing is ${newStr}.`)
+
+       console.log("");
+
+       let upperCase = str2.toUpperCase();
+       let lowerCase = str2.toLowerCase();
+       console.log(`${str2} in uppercase is ${upperCase}.`)
+       console.log(`${str2} in lowercase is ${lowerCase}.`)
+
+       console.log("");
+
+       let str3 = "     Hello,      World!      ";
+       let trimmedStr = str3.trim();
+       console.log(`${str3} after trimming is ${trimmedStr}.`)
+       let ultimateTrimmedStr = trimmedStr.replace("     ", "");
+       console.log(`Using replace function after trimming: ${ultimateTrimmedStr}`);
+
+       /*
+       let sentence = "Welcome to ENSF381 course.";
+       let indexOfENSF = sentence.indexOf("ENSF381"); 
+       let indexOfCourse = sentence.indexOf("course");
+       console.log(`Index of ENSF is ${indexOfENSF} and that of course is ${indexOfCourse}.`)*/
+       </script>
+    </body>
+</html>

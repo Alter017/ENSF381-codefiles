@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Statements Example</title>
+    </head>
+    <body>
+        <h2> Welcome to Week 5 Slide 2 codes</h2>
+        <script>
+            
+        let response = confirm('Shall we proceed?');
+        console.log(response);
+
+        // Example-1
+        /*
+        function calculateSquare(number) 
+        {
+        return (number * number);
+        }
+        numinput = prompt('Enter a number:');
+        console.log(`The square of ${numinput} is ${calculateSquare(numinput)}.`);
+        */
+        //Example-2
+        /*
+        //Function call can be made before definition
+        let username = prompt('Enter your name:');
+        let message = greetPerson(username);
+        console.log(message);
+
+        function greetPerson(name) 
+        {
+            // Using string template to create a greeting message
+            const greeting = `Hello ${name}, welcome to ENSF381!`;
+            // Returning the greeting
+            return greeting;
+        }
+        */
+        //Example-3
+        /*
+        function greetPerson(name='AITOR') 
+        {
+            // Using string template to create a greeting message
+            const greeting = `Hello ${name}, welcome to ENSF381!`;
+            // Returning the greeting
+            return greeting;
+        }
+        let username2 = prompt('Enter your name:');
+        let message2 = greetPerson(username2);
+        console.log(message2);
+
+        message2 = greetPerson();
+        console.log(message2);
+        */
+        /*
+        //Example-4
+        
+        // Function expression
+        var greet = function(name) 
+        {
+            return 'Hello, ' + name + '!';
+        };
+        // Example usage of the function expression
+        var message3 = greet('Gustavo');
+        console.log(message3); 
+        */
+
+        //Example-5
+        /*
+        //Arrow Functions
+        let greetPerson2 = (name='Jerry') => `Hello ${name}, welcome to ENSF381!`;
+
+        let message4 = greetPerson2('Tom');
+        console.log(message4);
+        message4 = greetPerson2();
+        console.log(message4);
+        */ 
+
+       //Example-6
+       /*
+       // Multiline arrow function
+       let calculateTotal = (price, tax) => {
+        let subTotal = price + (price * tax);
+        let discount = 0;
+        // Apply discount if the price is above a certain threshold
+        if (price > 100) 
+        {
+            discount = 10;
+        }
+        // Calculate the total after applying the discount
+        let total = subTotal - discount;
+        return total;
+        };
+        let totalPrice = calculateTotal(120, 0.15);
+        console.log(`Total Price: ${totalPrice}`);
+        */
+        //Example-7
+        
+        //Understanding Callback functions
+        function greet(name, callback) {
+            const message5 = "Hello, " + name + "!";
+            callback(message5);
+        }
+        function displayMessage(message5) {
+            console.log(message5);
+        }
+        
+        greet("Alice", displayMessage);
+        
+       //Example-8
+       /*
+       let dataSuccessfullyLoaded = function(callback) {
+        console.log("Data fetched successfully.");
+        callback({ data: 'data number 1' });
+        }
+        
+        function processData(data) {
+            console.log("Processing data:", data);
+        }
+        
+        function fetchData(callback) {
+            console.log("Fetching data...");
+            setTimeout(dataSuccessfullyLoaded(callback), 2000);
+        }
+        
+        fetchData(processData);
+
+        //Difference between the two not explained in slides
+        */
+        //Example-9
+        /*
+        function fetchData(callback) {
+            console.log("Fetching data...");
+            setTimeout(function() {
+                console.log("Data fetched successfully.");
+                callback({ data: 'data number 2' });
+            }, 2000);
+        }
+        
+        function processData(data) {
+            console.log("Processing data:", data);
+        }
+        
+        fetchData(processData);
+        */
+        //Can you define an array of 5 numbers, and then use functions to compute 
+        //the square of each element? Access the elements of the array using the
+        //forEach() method.
+
+        function calculateSquare(number) {
+        return (number * number);
+        }
+
+        let array=[1,2,3,4,5];
+        array.forEach(calculateSquare)
+
+       </script>
+    </body>
+</html>
